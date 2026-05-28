@@ -3,7 +3,7 @@ package com.deviceCare.deviceCare.modules.devices.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -20,5 +20,5 @@ public class DeviceResponse {
     private String color;
     private String physicalCondition;
     private String description;
-    private OffsetDateTime createdAt;
+    private Instant createdAt;
 }

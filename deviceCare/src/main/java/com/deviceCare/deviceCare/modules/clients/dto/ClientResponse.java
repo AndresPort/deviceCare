@@ -3,7 +3,7 @@ package com.deviceCare.deviceCare.modules.clients.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -18,5 +18,5 @@ public class ClientResponse {
     private String email;
     private String address;
     private UUID userId;
-    private OffsetDateTime createdAt;
+    private Instant createdAt;
 }

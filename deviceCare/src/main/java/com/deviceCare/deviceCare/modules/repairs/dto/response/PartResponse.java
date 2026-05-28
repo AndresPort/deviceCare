@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -19,5 +19,5 @@ public class PartResponse {
     private BigDecimal unitPrice;
     private BigDecimal subtotal;
     private String notes;
-    private OffsetDateTime createdAt;
+    private Instant createdAt;
 }

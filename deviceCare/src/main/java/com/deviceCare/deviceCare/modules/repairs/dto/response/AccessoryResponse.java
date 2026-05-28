@@ -3,7 +3,8 @@ package com.deviceCare.deviceCare.modules.repairs.dto.response;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.OffsetDateTime;
+import java.time.Instant;
+
 import java.util.UUID;
 
 @Getter
@@ -15,5 +16,5 @@ public class AccessoryResponse {
     private Integer quantity;
     private boolean received;
     private String conditionNotes;
-    private OffsetDateTime createdAt;
+    private Instant createdAt;
 }

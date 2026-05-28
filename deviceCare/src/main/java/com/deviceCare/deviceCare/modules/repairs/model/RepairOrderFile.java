@@ -1,12 +1,15 @@
 package com.deviceCare.deviceCare.modules.repairs.model;
 
+import com.deviceCare.deviceCare.config.PostgreSQLEnumType;
+import com.deviceCare.deviceCare.config.RepairOrderFileStageType;
 import com.deviceCare.deviceCare.modules.repairs.model.enums.RepairOrderFileStage;
 import com.deviceCare.deviceCare.modules.users.model.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -26,8 +29,8 @@ public class RepairOrderFile {
     @Column(name = "file_url", nullable = false)
     private String fileUrl;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "stage")
+    @Type(RepairOrderFileStageType.class)
+    @Column(name = "stage", columnDefinition = "repair_order_file_stage")
     private RepairOrderFileStage stage;
 
     @Column(name = "description")
@@ -38,8 +41,8 @@ public class RepairOrderFile {
     private User uploadedBy;
 
     @Column(name = "uploaded_at", nullable = false)
-    private OffsetDateTime uploadedAt = OffsetDateTime.now();
+    private Instant uploadedAt = Instant.now();
 
     @Column(name = "deleted_at")
-    private OffsetDateTime deletedAt;
+    private Instant deletedAt;
 }

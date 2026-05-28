@@ -31,4 +31,7 @@ public interface RepairOrderRepository extends JpaRepository<RepairOrder, UUID> 
         ORDER BY ro.createdAt DESC
     """)
     List<RepairOrder> findAllOrderedByCreatedAt();
+
+    @Query(value = "SELECT order_number FROM repair_orders WHERE id = :id", nativeQuery = true)
+    Long findOrderNumberById(UUID id);
 }

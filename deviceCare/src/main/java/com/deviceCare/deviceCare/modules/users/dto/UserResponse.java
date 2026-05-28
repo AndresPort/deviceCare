@@ -3,7 +3,7 @@ package com.deviceCare.deviceCare.modules.users.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.Set;
 import java.util.UUID;
 
@@ -18,5 +18,5 @@ public class UserResponse {
     private String phone;
     private boolean active;
     private Set<String> roles;
-    private OffsetDateTime createdAt;
+    private Instant createdAt;
 }

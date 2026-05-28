@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -61,8 +62,10 @@ public class RepairOrderService {
         }
 
         RepairOrder saved = repairOrderRepository.save(order);
+        repairOrderRepository.flush();
+        Long orderNumber = repairOrderRepository.findOrderNumberById(saved.getId());
+        saved.setOrderNumber(orderNumber);
         recordStatusChange(saved, null, RepairStatus.RECEIVED, "Orden creada");
-
         return toDetailResponse(saved);
     }
 
@@ -141,7 +144,7 @@ public class RepairOrderService {
         order.setStatus(request.getNewStatus());
 
         if (request.getNewStatus() == RepairStatus.DELIVERED) {
-            order.setDeliveredAt(OffsetDateTime.now());
+            order.setDeliveredAt(Instant.now());
         }
 
         repairOrderRepository.save(order);
@@ -161,7 +164,7 @@ public class RepairOrderService {
         }
 
         order.setClientApproved(request.isApproved());
-        order.setClientApprovedAt(OffsetDateTime.now());
+        order.setClientApprovedAt(Instant.now());
         order.setClientApprovalNotes(request.getNotes());
 
         if (request.isApproved()) {
@@ -215,7 +218,7 @@ public class RepairOrderService {
     public void deleteAccessory(UUID accessoryId) {
         RepairOrderAccessory accessory = accessoryRepository.findById(accessoryId)
                 .orElseThrow(() -> BusinessException.notFound("Accesorio no encontrado"));
-        accessory.setDeletedAt(OffsetDateTime.now());
+        accessory.setDeletedAt(Instant.now());
         accessoryRepository.save(accessory);
     }
 
@@ -248,7 +251,7 @@ public class RepairOrderService {
     public void deleteFile(UUID fileId) {
         RepairOrderFile file = fileRepository.findById(fileId)
                 .orElseThrow(() -> BusinessException.notFound("Archivo no encontrado"));
-        file.setDeletedAt(OffsetDateTime.now());
+        file.setDeletedAt(Instant.now());
         fileRepository.save(file);
     }
 
@@ -283,7 +286,7 @@ public class RepairOrderService {
     public void deletePart(UUID partId) {
         RepairOrderPart part = partRepository.findById(partId)
                 .orElseThrow(() -> BusinessException.notFound("Parte no encontrada"));
-        part.setDeletedAt(OffsetDateTime.now());
+        part.setDeletedAt(Instant.now());
         partRepository.save(part);
     }
 

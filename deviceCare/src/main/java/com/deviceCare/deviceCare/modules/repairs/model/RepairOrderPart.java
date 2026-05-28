@@ -1,13 +1,16 @@
 package com.deviceCare.deviceCare.modules.repairs.model;
 
+import com.deviceCare.deviceCare.config.PartSourceTypeEnum;
+import com.deviceCare.deviceCare.config.PostgreSQLEnumType;
 import com.deviceCare.deviceCare.modules.repairs.model.enums.PartSourceType;
 import com.deviceCare.deviceCare.modules.users.model.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -27,8 +30,8 @@ public class RepairOrderPart {
     @Column(name = "custom_part_name", length = 255)
     private String customPartName;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "source_type", nullable = false)
+    @Type(PartSourceTypeEnum.class)
+    @Column(name = "source_type", nullable = false, columnDefinition = "part_source_type")
     private PartSourceType sourceType;
 
     @Column(name = "quantity", nullable = false)
@@ -45,8 +48,8 @@ public class RepairOrderPart {
     private User createdBy;
 
     @Column(name = "created_at", nullable = false)
-    private OffsetDateTime createdAt = OffsetDateTime.now();
+    private Instant createdAt = Instant.now();
 
     @Column(name = "deleted_at")
-    private OffsetDateTime deletedAt;
+    private Instant deletedAt;
 }

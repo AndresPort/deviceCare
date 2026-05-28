@@ -4,7 +4,7 @@ import com.deviceCare.deviceCare.modules.repairs.model.enums.RepairOrderFileStag
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -16,5 +16,5 @@ public class RepairOrderFileResponse {
     private RepairOrderFileStage stage;
     private String description;
     private String uploadedByName;
-    private OffsetDateTime uploadedAt;
+    private Instant uploadedAt;
 }

@@ -4,7 +4,7 @@ import com.deviceCare.deviceCare.modules.repairs.model.enums.RepairStatus;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -16,5 +16,5 @@ public class StatusHistoryResponse {
     private RepairStatus newStatus;
     private String changedByName;
     private String notes;
-    private OffsetDateTime changedAt;
+    private Instant changedAt;
 }

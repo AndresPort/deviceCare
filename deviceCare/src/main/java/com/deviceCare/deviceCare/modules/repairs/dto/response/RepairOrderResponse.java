@@ -8,7 +8,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -34,7 +34,7 @@ public class RepairOrderResponse {
     private String technicalDiagnosis;
 
     private boolean clientApproved;
-    private OffsetDateTime clientApprovedAt;
+    private Instant clientApprovedAt;
     private String clientApprovalNotes;
 
     private BigDecimal estimatedCost;
@@ -43,8 +43,8 @@ public class RepairOrderResponse {
     private BigDecimal totalCost;
 
     private LocalDate estimatedDeliveryDate;
-    private OffsetDateTime deliveredAt;
+    private Instant deliveredAt;
 
-    private OffsetDateTime createdAt;
-    private OffsetDateTime updatedAt;
+    private Instant createdAt;
+    private Instant updatedAt;
 }
