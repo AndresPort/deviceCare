@@ -1,33 +1,67 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# =========================================================================
+# backend (/deviceCare)
+# =========================================================================
+
+/deviceCare/HELP.md
+/deviceCare/target/
+/deviceCare/.mvn/wrapper/maven-wrapper.jar
+!**/deviceCare/src/main/**/target/
+!**/deviceCare/src/test/**/target/
 
 ### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+/deviceCare/.apt_generated
+/deviceCare/.classpath
+/deviceCare/.factorypath
+/deviceCare/.project
+/deviceCare/.settings
+/deviceCare/.springBeans
+/deviceCare/.sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+/deviceCare/.idea
+/deviceCare/*.iws
+/deviceCare/*.iml
+/deviceCare/*.ipr
 
 ### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+/deviceCare/nbproject/private/
+/deviceCare/nbbuild/
+/deviceCare/dist/
+/deviceCare/nbdist/
+/deviceCare/.nb-gradle/
+/deviceCare/build/
+!**/deviceCare/src/main/**/build/
+!**/deviceCare/src/test/**/build/
 
 ### VS Code ###
-.vscode/
+/deviceCare/.vscode/
+
+
+# =========================================================================
+# frontend (/deviceCareFrontEnd)
+# =========================================================================
+
+# Logs
+/deviceCareFrontEnd/logs
+/deviceCareFrontEnd/*.log
+/deviceCareFrontEnd/npm-debug.log*
+/deviceCareFrontEnd/yarn-debug.log*
+/deviceCareFrontEnd/yarn-error.log*
+/deviceCareFrontEnd/pnpm-debug.log*
+/deviceCareFrontEnd/lerna-debug.log*
+
+/deviceCareFrontEnd/node_modules
+/deviceCareFrontEnd/dist
+/deviceCareFrontEnd/dist-ssr
+/deviceCareFrontEnd/*.local
+
+# Editor directories and files
+/deviceCareFrontEnd/.vscode/*
+!/deviceCareFrontEnd/.vscode/extensions.json
+/deviceCareFrontEnd/.idea
+/deviceCareFrontEnd/.DS_Store
+/deviceCareFrontEnd/*.suo
+/deviceCareFrontEnd/*.ntvs*
+/deviceCareFrontEnd/*.njsproj
+/deviceCareFrontEnd/*.sln
+/deviceCareFrontEnd/*.sw?
